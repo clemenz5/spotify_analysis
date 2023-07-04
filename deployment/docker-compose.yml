@@ -13,6 +13,8 @@ services:
       - f-net
   grafana:
     image: "grafana/grafana:latest"
+    hostname: spotifyanalysis
+    container_name: spotifyanalysis
     volumes: 
       - grafana:/var/lib/grafana
     networks:
