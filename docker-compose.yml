@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  db:
+    image: "mysql:latest"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: spotify
+    network_mode: "host"
+  adminer:
+    image: "adminer:latest"
+    network_mode: "host"
+  grafana:
+    image: "grafana/grafana:latest"
+    network_mode: "host"
