@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  db:
+    image: "mysql:latest"
+    hostname: spotifyanalysisdatabase
+    container_name: spotifyanalysisdatabase
+    volumes:
+      - spotify_analysis_db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: spotify
+    networks:
+      - f-net
+  grafana:
+    image: "grafana/grafana:latest"
+    volumes: 
+      - grafana:/var/lib/grafana
+    networks:
+      - f-net
+
+
+networks:
+  f-net:
+    name: f-net
+    driver: bridge
+
+volumes:
+  spotify_analysis_db:
+  grafana:
